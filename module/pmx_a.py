@@ -4,7 +4,7 @@ import logging
 import socket
 import time
 
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger('__main__').getChild(__name__)
 
 #__________________________________________________________
@@ -37,8 +37,8 @@ class PMX_A():
       try:
         data = self.sock.recv(rlen).decode()
         if self.debug:
-          logger.debug('W {}'.format(data))
-          return data
+          logger.debug('R {}'.format(data))
+        return data
       except socket.timeout:
         return ''
 
@@ -87,7 +87,7 @@ class PMX_A():
   #__________________________________________________________
   def outp(self, arg=None):
     if arg is None:
-      return int(self.__write('OUTP?',True))
+      return bool(int(self.__write('OUTP?',True)))
     else:
       self.__write(f'OUTP {arg}')
 

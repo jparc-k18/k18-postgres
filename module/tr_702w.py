@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger('__main__').getChild(__name__)
 
 class TR_702W():
